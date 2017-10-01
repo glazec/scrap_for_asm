@@ -3,12 +3,15 @@ from bs4 import BeautifulSoup
 import re
 import requests
 from urllib.request import urlretrieve
+import  urllib.error
 import os
 import time
 
 
 if __name__ == "__main__":
-    url = "https://asmhentai.com/"
+    page = "1"
+    page = input("which page you want to see(default is 1):\n")
+    url = "https://asmhentai.com/"+"page"+"/"+page+"/"
     headers = {
         "User-Agent":"User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55.0"
     }
@@ -26,7 +29,7 @@ if __name__ == "__main__":
         name = i.get("alt")
         i = i.get("src")
         a = i.split("/")
-        a.insert(3,"gallery")
+        a.insert(3,"g")
         a.insert(2, "asmhentai.com")
         a.insert(1, "https:/")
         a.pop(8)
@@ -36,7 +39,7 @@ if __name__ == "__main__":
         a.pop(0)
         b = "/".join(a)
         print(n,name)
-        print(b,"\n")
+        print(b+"/","\n")
         list_name.append(name)
         list_href.append(b)
         n += 1
@@ -76,8 +79,13 @@ if __name__ == "__main__":
                 img_url = str(url_op) + "/"+str(i)+".jpg"
                 #print(img_url)
                 print("downloding the "+str(i)+" picture")
-                urlretrieve(url=img_url, filename="benzi/"+filename+"/" +str(i)+".jpg")
-            time.sleep(1)
+                try:
+                    urlretrieve(url=img_url, filename="benzi/"+filename+"/" +str(i)+".jpg")
+                except urllib.error.HTTPError as e:
+                    print("finish download")
+                    break
+                finally:
+                    time.sleep(1)
 
         else:
             exit()
