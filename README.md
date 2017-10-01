@@ -12,10 +12,10 @@ download sourcecode and open list_adm.py
 3.enter the *number* of the art you want to download
 4.the program will create a dircectory called benzi in the place you put the script
 ## todo
-1. fix the problem of the url 
-2. support get information from the next few pages
-3. support url download
-4. set proxy to speed up download
-5. set ip pools
-6. multithread to speed up
-7. gui to show the process of download
+-[X] fix the problem of the url 
+-[X] support get information from the next few pages
+-[ ] support url download
+-[ ] set proxy to speed up download
+-[ ] set ip pools
+-[ ] multithread to speed up
+-[ ] gui to show the process of download
