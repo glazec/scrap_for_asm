@@ -19,4 +19,7 @@ download sourcecode and open list_adm.py
 5. set ip pools
 6. multithread to speed up
 7. gui to show the process of download
+8. change the host
+9.抓美女图片（非十八禁）
+10. 抓帅哥图片（没动力做这个）
  
