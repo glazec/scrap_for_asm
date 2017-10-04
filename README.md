@@ -7,10 +7,12 @@ click to the release and download exe. Then open it.
 prerequest:install python 3.x
 download sourcecode and open list_adm.py
 ###procedure
-1.the program will automatcaly get the title and link in the first page in www.asmhentai.com. The program will *number* them.
-2.type d to go on
-3.enter the *number* of the art you want to download
+1. first you should choose you want to see 18x or suitable for all ages.
+2.for the 18x,the program will automatcaly get the title and link in the first page in www.asmhentai.com. The program will *number* them.(if the speed is too slow, please use shadowsock or vpn 全局代理）
+2.type d to go on to download
+3.enter the *number* of the art work you want to download
 4.the program will create a dircectory called benzi in the place you put the script
+5. for shuai'ge and beauty, you do not need an vpn
 ## todo
 1. fix the problem of the url (FINISHED)
 2. support get information from the next few pages (FINISHED)
