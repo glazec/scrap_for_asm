@@ -42,11 +42,11 @@ python3 ./scrap.py
 ## Todos
 * ~~Fix the problem of the url~~ 
 * ~~Support get information from the next few pages~~
-* Support url download
+* Support url download(partly)
 * Set proxy to speed up download
 * Set ip pools
 * Multi-threads to speed up
 * GUI to show the process of download
 * Change the host
-* 抓美女图片（非十八禁）
-* 抓帅哥图片（没动力做这个）
+* ~~抓美女图片 from jiandan（非十八禁）~~
+* ~~抓帅哥图片（没动力做这个）~~
