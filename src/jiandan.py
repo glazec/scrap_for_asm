@@ -46,7 +46,10 @@ def jiandan():
         n = n + 1
         if 'beauty' not in os.listdir():
             os.makedirs('beauty')
-        urlretrieve(url=target_url, filename='beauty/' + filename)
+        try:
+            urlretrieve(url=target_url, filename='beauty/' + filename)
+        except urllib.error.HTTPError as e:
+            print("some errir occur.please delete the exised pictures and try again")
         time.sleep(1)
 
 

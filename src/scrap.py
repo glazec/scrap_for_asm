@@ -93,10 +93,23 @@ def download():
     while 'benzi' not in os.listdir():
         os.mkdir("benzi/")
     os.chdir('benzi/')
+
+    esc = ["\\","/",":","?","*","<",">","|","\""]
+    for i in esc:
+        filename = filename.replace(i," ")
+    # filename = filename.replace("\\"," ")
+    # filename = filename.replace("/"," ")
+    # filename = filename.replace(":", " ")
+    # filename = filename.replace("?", " ")
+    # filename = filename.replace("*", " ")
+    # filename = filename.replace("<", " ")
+    # filename = filename.replace(">", " ")
+    # filename = filename.replace("|", " ")
+    # filename = filename.replace("\"", " ")
     os.makedirs(filename)
     os.chdir("..")
     img_url = ""
-    for i in range(1, 100):
+    for i in range(1, 1000):
         pre_img_url = pre_img_url.split("/")
         # print(url_op)
         pre_img_url[2] = "images.asmhentai.com"
@@ -110,10 +123,13 @@ def download():
         except urllib.error.HTTPError as e:
             print("finish download")
             break
+        except BaseException as e:
+            print("contact me:luyiping1011@gmail.com or try again")
         finally:
             time.sleep(1)
 
 j = input("18x or 10x(18/10):\n")
+
 if j == "10":
     k = input("shuai'ge or beauty?(s or b):\n")
     if k == "s":
@@ -122,7 +138,7 @@ if j == "10":
         jiandan()
 else:
     while True:
-        print("data is from www.asmhentai.com(recommended by michale)")
+        print("data is from www.asmhentai.com(recommended by michale)\n please go to the category first\n")
         decision = input("download or go to the category or any key to quit(d/c):\n")
         if decision == "d":
             torrent = input("please enter the number or the url(etc.https://asmhentai.com/g/197279/) to begin download:\n")

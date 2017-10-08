@@ -45,7 +45,10 @@ def shuaia():
             img_url = 'http://www.shuaia.net' + img_bf_2.div.img.get('src')
             if 'shuaige' not in os.listdir():
                 os.makedirs('shuaige')
-            urlretrieve(url=img_url, filename='shuaige/' + filename)
+            try:
+                urlretrieve(url=img_url, filename='shuaige/' + filename)
+            except urllib.error.HTTPError as e:
+                print("some errir occur.please delete the exised pictures and try again")
             time.sleep(1)
 
         print('finish download')

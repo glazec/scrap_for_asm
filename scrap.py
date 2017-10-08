@@ -18,7 +18,7 @@ from bs4 import BeautifulSoup
 # pre_img_url = ""
 #if __name__ == "__main__":
 
-def category(page="1"):
+def category(page="1"):  # to get the title and url of the benzi
     global list_name
     global list_href
     page = input("which page you want to get(default is 1):\n")
@@ -30,13 +30,13 @@ def category(page="1"):
     req.encoding = 'utf-8'
     html = req.text
     gf = BeautifulSoup(html, "lxml")
-    names_url = gf.find_all(class_="lazy no_image")  # the url contain name
-    src_url = gf.find_all(href=re.compile("/g/"))  # the url contain the picture url
+    names_url = gf.find_all(class_="lazy no_image")# include name
+    src_url = gf.find_all(href=re.compile("/g/"))  # include image url
     list_name = []
     list_href = []
     n = 1
     for i in names_url:
-        name = i.get("alt")
+        name = i.get("alt") #get the specfic name
         i = i.get("src")
         a = i.split("/")
         a.insert(3, "g")
@@ -47,11 +47,11 @@ def category(page="1"):
         a.pop(4)
         a.pop(2)
         a.pop(0)
-        b = "/".join(a)
+        b = "/".join(a) # get the specific picture url
         print(n, name)
         print(b + "/", "\n")
-        list_name.append(name)
-        list_href.append(b)
+        list_name.append(name) #a list contain the name
+        list_href.append(b) # a list contian the picture url
         n = n + 1
 
 def number_to_pre_url():
@@ -108,6 +108,8 @@ def download():
         except urllib.error.HTTPError as e:
             print("finish download")
             break
+        except BaseException as e:
+            print("contact me:luyiping1011@gmail.com or try again")
         finally:
             time.sleep(1)
 
