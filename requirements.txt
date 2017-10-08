@@ -6,3 +6,5 @@ numpy==1.12.1
 requests==2.18.4
 urllib3==1.22
 lxml==3.7.2
+libxml2==2.7.0
+libxslt==1.1.23
