@@ -50,3 +50,4 @@ python3 ./scrap.py
 * Change the host
 * ~~抓美女图片 from jiandan（非十八禁）~~
 * ~~抓帅哥图片（没动力做这个）~~
+* download as pdf file
