@@ -8,6 +8,15 @@ import re
 def jiandan():
     print("data is from http://jandan.net/ooxx/page")
     list_url = []
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+    }
+    img_req = requests.get(url="http://jandan.net/ooxx/page-4484#comments", headers=headers)
+    img_req.encoding = 'utf-8'
+    img_html = img_req.text
+    img_bf = BeautifulSoup(img_html, 'lxml')
+    total = img_bf.find_all(class_="title")
+    print(total)
     s = int(input("which page do you want to start and start(1-4186)(the larger number means newer page):\n"))
     e = int(input("which page do you want to start and end(1-4186):\n"))
     for num in range(s, e+1):
@@ -34,9 +43,7 @@ def jiandan():
         else:
             filename = '' + str(time.localtime()) + '.gif'
 
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
-        }
+
         img_req = requests.get(url=target_url, headers=headers)
         img_req.encoding = 'utf-8'
         img_html = img_req.text

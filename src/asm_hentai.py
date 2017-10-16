@@ -16,15 +16,21 @@ def asm_hentai():
  def category(page="1"):
     global list_name
     global list_href
-    global proxy
+    #global proxy
     page = input("which page you want to get(default is 1):\n")
     url = "https://asmhentai.com/" + "pag" + "/" + page + "/"
     headers = {
         "User-Agent": "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55.0"
     }
-    proxy=["45.77.141.92:8118"]
-    proxy.append(input("add the proxy,only support http proxy. press enter to skip:\n"))
-    req = requests.get(url=url, headers=headers,proxies= {"http":random.choice(proxy)})
+    #proxy=["45.77.141.92:8118"]
+    # proxy = ["17.0.0.1"]
+    # proxy.append(input("add the proxy,only support http proxy. press enter to skip:\n"))
+    #
+    # proxy = urllib.request.ProxyHandler({"http": random.choice(proxy)})
+    # opener = urllib.request.build_opener(proxy)
+    # urllib.request.install_opener(opener)
+
+    req = requests.get(url=url, headers=headers)
     req.encoding = 'utf-8'
     html = req.text
     gf = BeautifulSoup(html, "lxml")
@@ -86,9 +92,9 @@ def asm_hentai():
     global filename
     global pre_img_url
     global proxy
-    proxy = urllib.request.ProxyHandler({"http":random.choice(proxy)})
-    opener = urllib.request.build_opener(proxy)
-    urllib.request.install_opener(opener)
+    # proxy = urllib.request.ProxyHandler({"http":random.choice(proxy)})
+    # opener = urllib.request.build_opener(proxy)
+    # urllib.request.install_opener(opener)
     print("downdload " + filename)
     while 'benzi' not in os.listdir():
         os.mkdir("benzi/")
@@ -97,15 +103,6 @@ def asm_hentai():
     esc = ["\\","/",":","?","*","<",">","|","\""]
     for i in esc:
         filename = filename.replace(i," ")
-    # filename = filename.replace("\\"," ")
-    # filename = filename.replace("/"," ")
-    # filename = filename.replace(":", " ")
-    # filename = filename.replace("?", " ")
-    # filename = filename.replace("*", " ")
-    # filename = filename.replace("<", " ")
-    # filename = filename.replace(">", " ")
-    # filename = filename.replace("|", " ")
-    # filename = filename.replace("\"", " ")
     os.makedirs(filename)
     os.chdir("..")
     img_url = ""
@@ -123,6 +120,9 @@ def asm_hentai():
         except urllib.error.HTTPError as e:
             print("finish download")
             break
+        except BaseException as e:
+            print("retry")
+            urlretrieve(url=img_url, filename="benzi/" + filename + "/" + str(i) + ".jpg")
         finally:
             time.sleep(1)
 
