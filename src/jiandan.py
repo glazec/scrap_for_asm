@@ -16,9 +16,14 @@ def jiandan():
     img_html = img_req.text
     img_bf = BeautifulSoup(img_html, 'lxml')
     total = img_bf.find_all(class_="title")
-    print(total)
-    s = int(input("which page do you want to start and start(1-4186)(the larger number means newer page):\n"))
-    e = int(input("which page do you want to start and end(1-4186):\n"))
+    page = img_bf.find_all(class_="title", id="comments")
+    page = str(page)
+    page = page.split(":")
+    page = page[1].split("<")
+    max_page = page[0]
+    #print(total)
+    s = int(input("which page do you want to start and start(1-"+max_page+")(the larger number means newer page):\n"))
+    e = int(input("which page do you want to start and end(1-"+max_page+"4186):\n"))
     for num in range(s, e+1):
         if num == 1:
             url = 'http://jandan.net/ooxx'

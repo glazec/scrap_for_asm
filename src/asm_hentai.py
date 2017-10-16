@@ -91,7 +91,7 @@ def asm_hentai():
  def download():
     global filename
     global pre_img_url
-    global proxy
+    #global proxy
     # proxy = urllib.request.ProxyHandler({"http":random.choice(proxy)})
     # opener = urllib.request.build_opener(proxy)
     # urllib.request.install_opener(opener)
