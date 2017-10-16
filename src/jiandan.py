@@ -47,8 +47,6 @@ def jiandan():
             filename = '' + str(time.localtime()) + '.jpg'
         else:
             filename = '' + str(time.localtime()) + '.gif'
-
-
         img_req = requests.get(url=target_url, headers=headers)
         img_req.encoding = 'utf-8'
         img_html = img_req.text
