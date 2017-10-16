@@ -139,7 +139,7 @@ def asm_hentai():
  print("data is from www.asmhentai.com(recommended by michale)\n please go to the category first\n")
  decision = input("download or go to the category (d/c):\n")
  if decision == "d":
-    torrent = input("please enter the number or the url(etc.https://asmhentai.com/g/197279/) to begin download:\n")
+    torrent = input("please enter the number or the url(etc.https://asmhentai.com/g/197279/) to begin download:\nthe smaller page number is newer page\n")
     if torrent.isnumeric():
         number_to_pre_url()
     else:

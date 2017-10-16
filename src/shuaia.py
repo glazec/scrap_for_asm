@@ -49,6 +49,8 @@ def shuaia():
                 urlretrieve(url=img_url, filename='shuaige/' + filename)
             except urllib.error.HTTPError as e:
                 print("some errir occur.please delete the exised pictures and try again")
+            except BaseException as e:
+                urlretrieve(url=img_url, filename='shuaige/' + filename)
             time.sleep(1)
 
         print('finish download')

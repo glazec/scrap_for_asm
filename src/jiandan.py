@@ -62,6 +62,8 @@ def jiandan():
             urlretrieve(url=target_url, filename='beauty/' + filename)
         except urllib.error.HTTPError as e:
             print("some errir occur.please delete the exised pictures and try again")
+        except BaseException as e:
+            urlretrieve(url=target_url, filename='beauty/' + filename)
         time.sleep(1)
 
 
