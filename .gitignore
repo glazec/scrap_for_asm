@@ -1,3 +1,8 @@
 benzi/
 .DS_Store
 src/benzi/
+src/beauty/
+src/dist/
+src/_pycache_/
+src/build/
+src/run.spec
